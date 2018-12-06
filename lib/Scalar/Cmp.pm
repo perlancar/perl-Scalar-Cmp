@@ -116,12 +116,16 @@ sub cmpstrornum_scalar {
 
 =head1 DESCRIPTION
 
-This module provides L</cmp_scalar> and L</cmpnum_scalar> which are convenient
-routines to compare two scalar values (check if they are the same, find out who
-is "greater than" the other). They can handle C<undef> and references. They
-return -1, 0, 1 like Perl's C<cmp> and C<< <=> >> operators, but also another
-value 2 when the two scalars are different but there is no sensible notion of
-which one is larger than the other. The following is the rule:
+This module provides L</cmp_scalar> (and L</cmpnum_scalar> and
+L</cmpstrornum_scalar> which are convenient routines to compare two scalar
+values (ii.e. check if they are the same, or find out who is "greater than" the
+other). The routines can handle C<undef> and references, so you don't have to
+manually check for these.
+
+The routines return -1, 0, 1 like Perl's C<cmp> and C<< <=> >> operators, but
+also possibly C<2> when the two scalars are different but there is no sensible
+notion of which one is larger than the other (e.g. C<1> vs C<[1]>). The
+following is the rule:
 
 =over
 
